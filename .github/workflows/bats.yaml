@@ -27,17 +27,17 @@ jobs:
     mi-segundo-job:
 
     # REQUERIDO - indicamos donde va a correr el job
-    runs-on: ubuntu-latest
+      runs-on: ubuntu-latest
 
     # Indica dependencia este job de otro
-    needs: mi-primer-job
+      needs: mi-primer-job
 
     #Pasos que se ejecutan en el job
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '14'
-      - run: npm version
-      - run: npm install -g bats
-      - run: bats -v
+      steps:
+        - uses: actions/checkout@v3
+        - uses: actions/setup-node@v3
+          with:
+           node-version: '14'
+        - run: npm version
+        - run: npm install -g bats
+        - run: bats -v
